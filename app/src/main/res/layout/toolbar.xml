@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/tToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/oil"
+
+
+        android:weightSum="1"
+        app:theme="@style/AppThemePenis">
+
+
+        <ImageView
+            android:id="@+id/action_profile"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:background="@android:color/holo_green_light"
+            android:clickable="true"
+            app:srcCompat="@drawable/ic_action_settings" />
+
+        <ImageView
+            android:id="@+id/action_home"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/colorAccent"
+            app:srcCompat="@drawable/ic_action_settings" />
+
+        <ImageView
+            android:id="@+id/action_msg"
+            android:layout_width="48dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:background="@color/primary_darker"
+            app:srcCompat="@drawable/ic_action_settings" />
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+</LinearLayout>

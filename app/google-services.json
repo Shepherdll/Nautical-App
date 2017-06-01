@@ -1,0 +1,63 @@
+{
+  "project_info": {
+    "project_number": "722476780767",
+    "firebase_url": "https://nauticaldemo.firebaseio.com",
+    "project_id": "nauticaldemo",
+    "storage_bucket": "nauticaldemo.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:722476780767:android:a4b0a6895ea3d369",
+        "android_client_info": {
+          "package_name": "com.sourcey.materialloginexample"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "722476780767-r8e59r95is20oevrqb4k3rqbg30g36me.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sourcey.materialloginexample",
+            "certificate_hash": "58abdf3c75742b79e2164a8c6e39c09c75429dad"
+          }
+        },
+        {
+          "client_id": "722476780767-rr3lm6lnn4gngvokmcdtedot0ir04i0t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sourcey.materialloginexample",
+            "certificate_hash": "6d7da9a437d52c886275d5d7ff77ff8cedee66af"
+          }
+        },
+        {
+          "client_id": "722476780767-66qhss0ptlamq3uv36iff7kbjte7e3au.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDJDvPj8uZFaS22l6pqkUbDj7OWle26KsI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "722476780767-66qhss0ptlamq3uv36iff7kbjte7e3au.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
