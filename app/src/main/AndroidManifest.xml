@@ -11,49 +11,40 @@
         android:icon="@mipmap/ic_launcher"
         android:label=" "
         android:theme="@style/AppTheme">
-
         <activity
             android:name=".LoginActivity"
             android:exported="true">
-
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
-
         <activity
             android:name=".SignupActivity"
             android:exported="true" />
-
-        <activity android:name=".ConnectionsActivity" />
-
+        <activity
+            android:name=".ConnectionsActivity"
+            android:exported="true"/>
         <activity
             android:name=".HomeActivity"
             android:exported="true" />
-
         <activity
             android:name=".ProfileActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustPan"/>
-
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".SetupActivity"
             android:exported="true" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
-
         <activity
             android:name=".GetToKnowActivity"
             android:exported="true" />
-
         <activity
             android:name=".ForgotPasswordActivity"
             android:exported="true" />
-
     </application>
 
 </manifest>
