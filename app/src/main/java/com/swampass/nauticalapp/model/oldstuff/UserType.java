@@ -1,4 +1,4 @@
-package com.swampass.nauticalapp.model;
+package com.swampass.nauticalapp.model.oldstuff;
 
 /**
  * Created by madhur on 17/01/15.

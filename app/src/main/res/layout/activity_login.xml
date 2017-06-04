@@ -39,7 +39,7 @@
 
         android:layout_width="392dp"
         android:layout_height="49dp"
-        android:background="@drawable/login_background2"
+        android:background="@drawable/login_email"
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:paddingLeft="40dp"

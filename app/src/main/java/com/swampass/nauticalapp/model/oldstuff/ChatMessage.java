@@ -1,4 +1,4 @@
-package com.swampass.nauticalapp.model;
+package com.swampass.nauticalapp.model.oldstuff;
 
 import java.util.Date;
 

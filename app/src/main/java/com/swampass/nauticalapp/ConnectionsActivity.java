@@ -37,7 +37,7 @@ public class ConnectionsActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ViewPager mViewPager;
     private SectionsPagerAdapter mSectionsPagerAdapter;
-    TextView person_name,person_email;
+    TextView person_name, person_email;
     RecyclerView recyclerView;
     DatabaseReference mRef;
     public FirebaseRecyclerAdapter<Active_Chat, Show_Chat_ViewHolder> mFirebaseAdapter;
@@ -56,9 +56,8 @@ public class ConnectionsActivity extends AppCompatActivity {
         mRef.keepSynced(true);
 
 
-
         //Recycler View
-        recyclerView = (RecyclerView)findViewById(R.id.show_chat_recyclerView);
+        recyclerView = (RecyclerView) findViewById(R.id.show_chat_recyclerView);
         mLinearLayoutManager = new LinearLayoutManager(ConnectionsActivity.this);
         //mLinearLayoutManager.setStackFromEnd(true);
         recyclerView.setLayoutManager(mLinearLayoutManager);
@@ -194,10 +193,9 @@ public class ConnectionsActivity extends AppCompatActivity {
 
                 if (!model.getName().equals("Null")) {
                     viewHolder.Person_Name(model.getName());
-                    viewHolder.Person_Image(model.getImage_Url());
+                    viewHolder.Person_Image(model.getImage());
                     //viewHolder.Person_Email(model.getEmail());
-                    if(model.getEmail().equals(SignIn.LoggedIn_User_Email))
-                    {
+                    if (model.getEmail().equals(HomeActivity.LoggedIn_User_Email)) {
                         //viewHolder.itemView.setVisibility(View.GONE);
                         viewHolder.Layout_hide();
 
@@ -205,8 +203,7 @@ public class ConnectionsActivity extends AppCompatActivity {
                         // viewHolder.itemView.set;
 
 
-                    }
-                    else
+                    } else
                         viewHolder.Person_Email(model.getEmail());
                 }
 
@@ -225,7 +222,6 @@ public class ConnectionsActivity extends AppCompatActivity {
                                 String retrieve_name = dataSnapshot.child("Name").getValue(String.class);
                                 String retrieve_Email = dataSnapshot.child("Email").getValue(String.class);
                                 String retrieve_url = dataSnapshot.child("Image_URL").getValue(String.class);
-
 
 
                                 Intent intent = new Intent(getApplicationContext(), ChatConversationActivity.class);
@@ -249,9 +245,6 @@ public class ConnectionsActivity extends AppCompatActivity {
         recyclerView.setAdapter(mFirebaseAdapter);
 
 
-
-
-
     }
 
     //View Holder For Recycler View
@@ -266,7 +259,7 @@ public class ConnectionsActivity extends AppCompatActivity {
             person_name = (TextView) itemView.findViewById(R.id.chat_persion_name);
             person_email = (TextView) itemView.findViewById(R.id.chat_persion_email);
             person_image = (ImageView) itemView.findViewById(R.id.chat_persion_image);
-            layout = (LinearLayout)itemView.findViewById(R.id.show_chat_single_item_layout);
+            layout = (LinearLayout) itemView.findViewById(R.id.show_chat_single_item_layout);
             params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         }
 
@@ -275,6 +268,7 @@ public class ConnectionsActivity extends AppCompatActivity {
             // Log.d("LOGGED", "Setting Name: ");
             person_name.setText(title);
         }
+
         private void Layout_hide() {
             params.height = 0;
             //itemView.setLayoutParams(params);
@@ -304,3 +298,4 @@ public class ConnectionsActivity extends AppCompatActivity {
         }
 
     }
+}

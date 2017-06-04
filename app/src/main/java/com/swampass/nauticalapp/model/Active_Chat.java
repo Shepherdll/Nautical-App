@@ -41,4 +41,5 @@ public class Active_Chat {
     public void setName(String name) {
         Name = name;
     }
+
 }

@@ -52,6 +52,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.swampass.nauticalapp.model.Active_Chat;
+import com.swampass.nauticalapp.model.Chat_Conversation_Data_Items;
+import com.swampass.nauticalapp.model.EnlargeImageView;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -65,7 +67,7 @@ public class ChatConversationActivity extends AppCompatActivity {
     public RecyclerView recyclerView;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference myRef,myRef2;
-    private FirebaseRecyclerAdapter<Active_Chat, Chat_Conversation_ViewHolder> mFirebaseAdapter;
+    private FirebaseRecyclerAdapter<Chat_Conversation_Data_Items, Chat_Conversation_ViewHolder> mFirebaseAdapter;
     public LinearLayoutManager mLinearLayoutManager;
     static String Sender_Name;
 
@@ -90,9 +92,9 @@ public class ChatConversationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.show_chat_conversation_layout);
+        setContentView(R.layout.chat_conversation_layout);
 
-        String USER_ID = SignIn.LoggedIn_User_Email.replace("@","").replace(".","");
+        String USER_ID = HomeActivity.LoggedIn_User_Email.replace("@","").replace(".","");
         firebaseDatabase = FirebaseDatabase.getInstance();
         myRef = FirebaseDatabase.getInstance().getReference().child("Chat").child(USER_ID).child(getIntent().getStringExtra("email").replace("@","").replace(".",""));
         myRef.keepSynced(true);
@@ -134,7 +136,7 @@ public class ChatConversationActivity extends AppCompatActivity {
                 if(!messageText.equals("")){
                     ArrayMap<String, String> map = new ArrayMap<>();
                     map.put("message", messageText);
-                    map.put("sender", SignIn.LoggedIn_User_Email);
+                    map.put("sender", HomeActivity.LoggedIn_User_Email);
                     myRef.push().setValue(map);
                     myRef2.push().setValue(map);
                     message_area.setText("");
@@ -221,10 +223,10 @@ public class ChatConversationActivity extends AppCompatActivity {
     public void onStart() {
         super.onStart();
        // Log.d("LOGGED", "On Start : " );
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Show_Chat_Conversation_Data_Items, Chat_Conversation_ViewHolder>(Show_Chat_Conversation_Data_Items.class, R.layout.show_chat_conversation_single_item, Chat_Conversation_ViewHolder.class, myRef) {
+        mFirebaseAdapter = new FirebaseRecyclerAdapter<Chat_Conversation_Data_Items, Chat_Conversation_ViewHolder>(Chat_Conversation_Data_Items.class, R.layout.chat_conversation_single_item, Chat_Conversation_ViewHolder.class, myRef) {
 
 
-            public void populateViewHolder(final Chat_Conversation_ViewHolder viewHolder, Show_Chat_Conversation_Data_Items model, final int position) {
+            public void populateViewHolder(final Chat_Conversation_ViewHolder viewHolder, Chat_Conversation_Data_Items model, final int position) {
 
                 viewHolder.getSender(model.getSender());
                 viewHolder.getMessage(model.getMessage());
@@ -359,10 +361,10 @@ public class ChatConversationActivity extends AppCompatActivity {
         private void getSender(String title) {
 
 
-            if(title.equals(SignIn.LoggedIn_User_Email))
+            if(title.equals(HomeActivity.LoggedIn_User_Email))
             {
                 //Log.d("LOGGED", "getSender: ");
-                params.setMargins((SignIn.Device_Width/3),5,10,10);
+                params.setMargins((HomeActivity.Device_Width/3),5,10,10);
                 text_params.setMargins(15,10,0,5);
                 sender.setLayoutParams(text_params);
                 mView.setLayoutParams(params);
@@ -374,7 +376,7 @@ public class ChatConversationActivity extends AppCompatActivity {
             }
             else
             {
-                params.setMargins(10,0,(SignIn.Device_Width/3),10);
+                params.setMargins(10,0,(HomeActivity.Device_Width/3),10);
                 sender.setGravity(Gravity.START);
                 text_params.setMargins(60,10,0,5);
                 sender.setLayoutParams(text_params);
@@ -462,7 +464,7 @@ public class ChatConversationActivity extends AppCompatActivity {
 
                     ArrayMap<String, String> map = new ArrayMap<>();
                     map.put("message", downloadUri.toString());
-                    map.put("sender", SignIn.LoggedIn_User_Email);
+                    map.put("sender", HomeActivity.LoggedIn_User_Email);
                     myRef.push().setValue(map);
                     myRef2.push().setValue(map);
                     mProgressDialog.dismiss();
@@ -493,7 +495,7 @@ public class ChatConversationActivity extends AppCompatActivity {
                         @SuppressWarnings("VisibleForTests") Uri downloadUri = taskSnapshot.getDownloadUrl();
                         ArrayMap<String, String> map = new ArrayMap<>();
                         map.put("message", downloadUri.toString());
-                        map.put("sender", SignIn.LoggedIn_User_Email);
+                        map.put("sender", HomeActivity.LoggedIn_User_Email);
                         myRef.push().setValue(map);
                         myRef2.push().setValue(map);
 
